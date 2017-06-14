@@ -7,7 +7,7 @@ Departamento de Ciencia da Computacao - CIC
 Disciplina: Tecnicas de Programacao 2
 Turma: A
 Professor: Genaina Nunes Rodrigues
-Alunos: Raphael Soares, Cristiano Krug, José Leite, Camila Pontes (15/0156120)
+Alunos: Camila Pontes (15/0156120) e Vitor Bona de Faria (12/0138042)
 
 Trabalho 1 - Implementacao do programa QuizTime conforme especificacoes
 disponibilizadas no moodle da disciplina.
