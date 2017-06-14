@@ -612,11 +612,11 @@ void ControllerUIAdmin::includeQuiz() {
                         questions.push_back(new Question(quest, ans));
                     }
 
-                    if(!controllerBL->includeQuiz(name, questions, tops_map[sel2])){
-                        printf("\nErro: topico já cadastrado.\n");
+                    if(!controllerBL->includeQuiz(name, questions, tops_map[sel2], subs_map[sel1])){
+                        printf("\nErro: quiz já cadastrado.\n");
                         getchar();
                     } else {
-                        printf("\nTopico cadastrado com sucesso.\n");
+                        printf("\nQuiz cadastrado com sucesso.\n");
                         getchar();
                     }
                 } else {
@@ -658,9 +658,10 @@ bool ControllerBLAdmin::includeTopic(const string & name, Subject * sub) {
         if(name == it.getName()) return false;
     }
     sub->addTopic(Topic(name));
+    controllerPR->storeSubjectDB(sub);
     return true;
 }
-bool ControllerBLAdmin::includeQuiz(const string & name, std::vector<Question*> questions, Topic * top) {
+bool ControllerBLAdmin::includeQuiz(const string & name, std::vector<Question*> questions, Topic * top, Subject * sub) {
     /// Esta funcao verifica se ja nao existe um quiz com o nome 'name' no topico
     /// top e, caso nao exista, cria um novo quiz com nome 'name' e com as questoes
     /// do vetor questions.
@@ -671,7 +672,16 @@ bool ControllerBLAdmin::includeQuiz(const string & name, std::vector<Question*> 
     for(int i=0; i<10; i++) {
         quiz.addQuestion(*questions[i]);
     }
-    top->addQuiz(quiz);
+    for(auto it:sub->getTopics()){
+        if(top->getName() == it.getName()) {
+            printf("oi\n");
+            it.addQuiz(quiz);
+            cout << it.getName();
+            cout << it.getQuizes()[0].getname();
+        }
+    }
+    cout << sub->getTopics()[0].getName();
+    controllerPR->storeSubjectDB(sub);
     return true;
 }
 
