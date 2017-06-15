@@ -1,0 +1,2 @@
+1|S|Álgebra|1
+2|N|Variáveis Complexas|2

@@ -1,0 +1,2 @@
+1|S|Matemática|1
+2|N|Geografia

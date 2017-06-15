@@ -43,7 +43,7 @@ void NotebookManager::addNotebookWithoutId(Notebook *notebook)
 {
 	notebook->setId(NotebookManager::nextNotebookID);
 	notebooks->push_back(notebook);
-	NotebookManager::inst++;
+	NotebookManager::nextNotebookID++;
 }
 
 
@@ -64,7 +64,7 @@ Notebook *NotebookManager::searchNotebookById(int id)
 void NotebookManager::addNotebook(Notebook *notebook)
 {
 	notebooks->push_back(notebook);
-	NotebookManager::inst++;
+	NotebookManager::nextNotebookID++;
 }
 
 
