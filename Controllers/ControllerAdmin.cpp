@@ -70,9 +70,9 @@ void ControllerAdmin::removeStudent() {
         cout << "QuizTime - Remover Usuario\n\n";
         i = 1;
         for(auto it:UserManager::instance()->getUsers()){
-            User *user=it.second;
+            User *user=it;
             if(user->getProfile() == 'U') {
-                cout << i << it.first << "\n";
+                cout << i << user->getName() << "\n";
                 user_map[i] = user;
                 i++;
             }
@@ -126,7 +126,7 @@ void ControllerAdmin::includeSubject() {
     system(CLEAR);
     cout << "QuizTime - Cadastro de Disciplina\n\n";
     cout << "Nome da disciplina: ";
-    cin  >> name;
+    getline(cin, name);
     sub->setName(name);
     SubjectManager::instance()->addSubject(sub)
     cout << "\nDisciplina cadastrada com sucesso.\n";
@@ -134,10 +134,10 @@ void ControllerAdmin::includeSubject() {
 }
 
 void ControllerAdmin::includeTopic() {
-    /// Esta funcao solicita ao modulo de logica de negocio o banco de disciplinas,
-    /// exibe um menu para que o usuario selecione uma disciplina na qual deseja
-    /// incluir um novo topico e recebe o nome para um novo topico. Em seguida,
-    /// cadastra o novo topico.
+    /// Esta funcao recupera do banco de dados o banco de disciplinas, exibe um menu
+    /// para que o usuario selecione uma disciplina na qual deseja incluir um novo
+    /// topico e recebe o nome para um novo topico. Em seguida, cadastra o novo
+    /// topico.
     std::map <int, Subject*> subs_map;
     std::string name;
     Topic * top = new Topic();
@@ -148,8 +148,8 @@ void ControllerAdmin::includeTopic() {
         cout << "QuizTime - Inserir Topico\n\n";
         i = 1;
         for(auto it:SubjectManager::instance()->getSubjects()){
-            Subject *sub=it.second;
-            cout << i << it.first << "\n";
+            Subject *sub=it;
+            cout << i << sub->getName() << "\n";
             subs_map[i] = sub;
             i++;
         }
@@ -159,7 +159,7 @@ void ControllerAdmin::includeTopic() {
 
        if(sel != 0 && sel < i) {
             cout << "Nome do novo topico: ";
-            cin  >> name;
+            getline(cin, name);
           
             top->setName(name);  
             TopicManager::instance()->addTopic(top);
@@ -168,6 +168,85 @@ void ControllerAdmin::includeTopic() {
         }
         else {
             if(sel != 0) {
+                cout << "Selecao de disciplina invalida.\n";
+                getchar();
+            }
+        }
+    }
+}
+
+void ControllerUIAdmin::includeQuiz() {
+    /// Esta funcao recupera do banco de dados o banco de disciplinas, exibe um menu
+    /// para que o usuario selecione uma disciplina e um topico, no qual deseja
+    /// incluir um novo quiz e recebe o nome e as perguntas para o novo quiz. Em
+    /// seguida, cadastra o novo quiz.
+    std::map <int, Subject*> subs_map;
+    std::map <int, Topic*> tops_map;
+    std::vector<Question*> questions;
+    std::string name, quest;
+    char ans;
+    int sel1 = -1, sel2 = -1;
+    int i;
+
+    while(sel1 != 0) {
+        system(CLEAR);
+        printf("QuizTime - Criar Novo Quiz\n\n");
+        i = 1;
+        for(auto it:SubjectManager::instance()->getSubjects()){
+            Subject *sub=it;
+            cout << i << sub->getName() << "\n";
+            subs_map[i] = it;
+            i++;
+        } 
+        cout << "0. Voltar\n";
+        cout << "\nSelecione uma disciplina para inserir o quiz: ";
+        cin  >> sel1;
+
+        if(sel1 != 0 && sel1 < i) {
+            while(sel2 != 0) {
+                system(CLEAR);
+                cout << "QuizTime - Criar Novo Quiz\n\n";
+                i = 1;
+                for(auto it:subs_map[sel1]->getTopics()){
+                    Topic * top = it;
+                    cout << i << top->getName() << "\n";
+                    tops_map[i] = top;
+                    i++;
+                }
+                cout << "0. Voltar\n";
+                cout << "\nSelecione um topico para inserir o quiz: ";
+                cin  >> sel2;
+
+                if(sel2 != 0 && sel2 < i) {
+                    cout << "Nome do novo quiz: ";
+                    getline(cin, name);
+
+                    for(int k=0; k<10; k++) {
+                        ans = 'O';
+                        cout << "Pergunta numero %d: ", k+1;
+                        getline(cin, quest);
+                        while(ans != 'V' && ans != 'F') {
+                            cout << "Resposta (V/F): ";
+                            cin  >> ans;
+                        }
+                        questions.push_back(new Question(quest, ans));
+                    }
+                    if(!controllerBL->includeQuiz(name, questions, tops_map[sel2])){
+                         cout << "\nErro: topico já cadastrado.\n";
+                        getchar();
+                    } else {
+                        cout << "\nTopico cadastrado com sucesso.\n";
+                        getchar();
+                    }
+                } else {
+                    if(sel2 != 0) {
+                        cout << "Selecao de topico invalida.\n";
+                        getchar();
+                    }
+                }
+            }
+        } else {
+            if(sel1 != 0) {
                 cout << "Selecao de disciplina invalida.\n";
                 getchar();
             }

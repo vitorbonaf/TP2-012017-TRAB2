@@ -70,7 +70,7 @@ void ControllerUser::changeName(User * user) {
     cout << "QuizTime - Alterar Nome\n\n";
     cout << "O seu nome atual é" << name << "\n";
     cout << "Insira um novo nome: ";
-    cin  >> new_name;
+    getline(cin, new_name);
 
     user->setName(name);
 }
@@ -83,7 +83,7 @@ void ControllerUser::changePass(User * user) {
     cout << "QuizTime - Alterar Senha\n\n";
     cout << "Senha atual: " << user->getPassword() << "\n";
     cout << "Nova senha: ";
-    cin  >> new_pass;
+    getline(cin, new_pass);
     user->setPassword(new_pass){
 }
 
@@ -104,12 +104,9 @@ void ControllerUser::includeSubject(User * user) {
         printf("QuizTime - Matricula em Disciplina\n\n");
         i = 1;
         for(auto it:SubjectManager::instance()->getSubjects()){
-
-            auto iter=std::find_if(subs.begin(),subs.end(),[it](const Subject& comp){return comp.getName()==it.second->getName();});
-            if(iter!=subs.end())continue;
-
-            cout << i << it.second->getName() << "\n";
-            subs_map[i] = it.second;
+            Subject * sub = it;
+            cout << i << sub->getName() << "\n";
+            subs_map[i] = sub;
             i++;
         }
         cout << "0. Voltar\n";
@@ -127,7 +124,6 @@ void ControllerUser::removeSubject(User * user) {
     /// cadastradas, mostra um menu ao usuario para que ele selecione uma disciplina
     /// para trancamento e solicita ao módulo de logica de negocio que realize a
     /// remocao da disciplina selecionada.
-    std::vector<Subject*> subjects;
     std::map <int, Subject*> subs_map;
     int sel = -1;
     int i;
@@ -135,10 +131,10 @@ void ControllerUser::removeSubject(User * user) {
         char buffer[64];
         system(CLEAR);
         printf("QuizTime - Trancamento de Disciplina\n\n");
-        subjects = user->getNotebook()->getSubjects();
         i = 1;
-        for(Subject* &sub:subjects) {       //TODO: verificar se isso funciona
-            cout << i << sub.getName() << "\n";
+        for(auto it:user->getNotebook()->getSubjects()) {       //TODO: verificar se isso funciona
+            Subject * sub = it;
+            cout << i << sub->getName() << "\n";
             subs_map[i] = sub;
             i++;
         }
