@@ -11,16 +11,16 @@
 #include <vector>
 #include <algorithm>
 #include "ControllerAdmin.h"
-#include "../Entity/User.h"
-#include "../Entity/Subject.h"
-#include "../Entity/Notebook.h"
-#include "../Entity/Topic.h"
-#include "../Entity/Quiz.h"
-#include "../Entity/Question.h"
-#include "../Manager/UserManager.h"
-#include "../Manager/SubjectManager.h"
-#include "../Manager/TopicManager.h"
-#include "../Manager/QuizManager.h"
+#include "User.h"
+#include "Subject.h"
+#include "Notebook.h"
+#include "Topic.h"
+#include "Quiz.h"
+#include "Question.h"
+#include "UserManager.h"
+#include "SubjectManager.h"
+#include "TopicManager.h"
+#include "QuizManager.h"
 
 // ADMINISTRATOR MODULE
 

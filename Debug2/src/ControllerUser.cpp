@@ -10,8 +10,8 @@
 #include <map>
 #include <vector>
 #include "ControllerUser.h"
-#include "../Entity/User.h"
-#include "../Manager/SubjectManager.h"
+#include "User.h"
+#include "SubjectManager.h"
 
 /// USER MODULE
 

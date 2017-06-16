@@ -8,8 +8,8 @@
 #include <iostream>
 #include <string>
 #include "ControllerAuth.h"
-#include "../Entity/User.h"
-#include "../Manager/UserManager.h"
+#include "User.h"
+#include "UserManager.h"
 
 /// AUTHENTICATION MODULE
 
