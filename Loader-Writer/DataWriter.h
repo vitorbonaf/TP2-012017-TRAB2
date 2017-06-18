@@ -18,6 +18,7 @@ private:
 	void saveTopics();
 	void saveQuizzes();
 	void saveQuestions();
+	void saveScores();
 public:
 	virtual ~DataWriter();
 	static DataWriter* instance();

@@ -18,6 +18,7 @@ private:
 	void loadTopics();
 	void loadQuizzes();
 	void loadQuestions();
+	void loadScores();
 public:
 	virtual ~DataLoader();
 	static DataLoader* instance();

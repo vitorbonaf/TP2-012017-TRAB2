@@ -1,2 +1,6 @@
 1|S|Quiz 01|1|2|3|4|5
-2|N|Quiz 02|6|7|8|9|10
+2|S|Quiz 02|6|7|8|9|10
+3|N|Quiz da Bailarina|11|12|13|14|15|16|17|18|19|20
+4|N|Quiz das Manilhas|21|22|23|24|25|26|27|28|29|30
+5|N|Olimpíada Brasileira de Matemática|31|32|33|34|35|36|37|38|39|40
+6|S|Quiz de Aviação|41|42|43|44|45|46|47|48|49|50

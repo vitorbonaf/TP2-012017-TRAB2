@@ -12,9 +12,17 @@
 #include "../Manager/UserManager.h"
 
 /// AUTHENTICATION MODULE
+ControllerAuth* ControllerAuth::inst = 0;
 
 ControllerAuth::ControllerAuth () { }
 ControllerAuth::~ControllerAuth() { }
+
+ControllerAuth* ControllerAuth::instance(){
+	if (ControllerAuth::inst == NULL){
+		ControllerAuth::inst = new ControllerAuth();
+	}
+	return ControllerAuth::inst;
+}
 
 User * ControllerAuth::authenticate(const std::string & login, const std::string & pwd) {
     /// Esta funcao recebe como parametros um login e uma senha, solicita ao modulo

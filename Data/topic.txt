@@ -1,2 +1,5 @@
 1|S|Álgebra|1
-2|N|Variáveis Complexas|2
+2|S|Variáveis Complexas|2
+3|N|Plie|3
+4|N|Zap|4
+5|S|Pouso|6

@@ -1,0 +1,6 @@
+teste11|4|11
+teste12|5|12
+teste13|6|13
+teste14|7|14
+ADMIN|0|5
+ADMIN|15|84

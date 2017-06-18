@@ -8,7 +8,12 @@
 /// USER
 
 class ControllerUser {
+private:
+	ControllerUser();
+	static ControllerUser *inst;
+	bool subjectInNotebook(User *user, Subject *subject);
 public:
+	static ControllerUser* instance();
     void manageUserData (User *);
     void manageUserSubjects (User *);
     void changeName(User *);
@@ -17,7 +22,6 @@ public:
     void includeSubject(User *);
     void removeSubject(User *);
     ~ControllerUser(void);
-    ControllerUser(void);
 };
 
 #endif

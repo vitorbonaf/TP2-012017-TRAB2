@@ -1,10 +1,50 @@
-1|S|1+1=2|1|0|5|Verdadeiro|Falso
-2|S|1+1=3|1|1|5|Verdadeiro|Falso
-3|S|1+1=4|1|1|5|Verdadeiro|Falso
-4|S|1+1=2|1|0|5|Verdadeiro|Falso
-5|S|1+1=5|1|1|5|Verdadeiro|Falso
-6|N|ABS(1+1I)=5|1|1|5|Verdadeiro|Falso
-7|N|ABS(1+1I)=5|1|1|5|Verdadeiro|Falso
-8|N|ABS(1+1I)=5|1|1|5|Verdadeiro|Falso
-9|N|ABS(1+1I)=5|1|1|5|Verdadeiro|Falso
-10|N|ABS(1+1I)=5|1|1|5|Verdadeiro|Falso
+1|S|1+1=2|1|0|1|Verdadeiro|Falso
+2|S|1+1=3|1|1|1|Verdadeiro|Falso
+3|S|1+1=4|1|1|1|Verdadeiro|Falso
+4|S|1+1=2|1|0|1|Verdadeiro|Falso
+5|S|1+1=5|1|1|1|Verdadeiro|Falso
+6|S|ABS(1+1I)=5|1|1|1|Verdadeiro|Falso
+7|S|ABS(1+1I)=5|1|1|1|Verdadeiro|Falso
+8|S|ABS(1+1I)=5|1|1|1|Verdadeiro|Falso
+9|S|ABS(1+1I)=5|1|1|1|Verdadeiro|Falso
+10|S|ABS(1+1I)=5|1|1|1|Verdadeiro|Falso
+11|N|O ballet surgiu na Itália|1|0|1|Verdadeiro|Falso
+12|N|O ballet surgiu na Itália|1|0|1|Verdadeiro|Falso
+13|N|O ballet surgiu na Itália|1|0|1|Verdadeiro|Falso
+14|N|O ballet surgiu na Itália|1|0|1|Verdadeiro|Falso
+15|N|O ballet surgiu na Itália|1|0|1|Verdadeiro|Falso
+16|N|O ballet surgiu na Itália|1|0|1|Verdadeiro|Falso
+17|N|O ballet surgiu na Itália|1|0|1|Verdadeiro|Falso
+18|N|O ballet surgiu na Itália|1|0|1|Verdadeiro|Falso
+19|N|O ballet surgiu na Itália|1|0|1|Verdadeiro|Falso
+20|N|O ballet surgiu na Itália|1|0|1|Verdadeiro|Falso
+21|N|Zap é a maior carta|1|0|1|Verdadeiro|Falso
+22|N|Copas vem depois do zap|1|0|1|Verdadeiro|Falso
+23|N|Espadilha é menor que sete de ouros|1|1|1|Verdadeiro|Falso
+24|N|Todo mundo joga com mata-zap|1|1|1|Verdadeiro|Falso
+25|N|Todo mundo joga com mata-zap|1|1|1|Verdadeiro|Falso
+26|N|Todo mundo joga com mata-zap|1|1|1|Verdadeiro|Falso
+27|N|Todo mundo joga com mata-zap|1|1|1|Verdadeiro|Falso
+28|N|Todo mundo joga com mata-zap|1|1|1|Verdadeiro|Falso
+29|N|Todo mundo joga com mata-zap|1|1|1|Verdadeiro|Falso
+30|N|Todo mundo joga com mata-zap|1|1|1|Verdadeiro|Falso
+31|N|O valor de PI é 3.14|1|0|1|Verdadeiro|Falso
+32|N|OBMEP é a olimpíada brasileira de matemática das escolas públicas|1|0|1|Verdadeiro|Falso
+33|N|Math é diferente de Meth|1|0|1|Verdadeiro|Falso
+34|N|Math é diferente de Meth|1|0|1|Verdadeiro|Falso
+35|N|Math é diferente de Meth|1|0|1|Verdadeiro|Falso
+36|N|Math é diferente de Meth|1|0|1|Verdadeiro|Falso
+37|N|Math é diferente de Meth|1|0|1|Verdadeiro|Falso
+38|N|Math é diferente de Meth|1|0|1|Verdadeiro|Falso
+39|N|Math é diferente de Meth|1|0|1|Verdadeiro|Falso
+40|N|Math é diferente de Meth|1|0|1|Verdadeiro|Falso
+41|S|O que é ILS?|2|3|6|Um tipo de sorvete|Uma cidade|A sigla de um aeroporto|Um sistema para auxílio de pouso
+42|S|Batatinha quando nasce se...?|2|3|1|Frita|Colhe|Come|Esparrama
+43|S|O que significa SBBR?|2|3|9|Guarulhos|Congonhas|Goiânia|Brasília
+44|S|Aviões voam devido a diferença de pressão.|1|0|2|Verdadeiro|Falso
+45|S|Quem é o pai da aviação?|2|1|10|Irmãos Wright|Santos Dumont|Cristóvão Colombo|Alan Turing
+46|S|Quantos sacramentos tem a Igreja Católica?|2|3|3|1|3|5|7
+47|S|La la land ganhou 12 oscars.|1|1|2|Verdadeiro|Falso
+48|S|Não há lugar como...|2|2|1|a cama|o shopping|o lar|o mar
+49|S|Romeu e Julieta eram de famílias rivais.|1|0|1|Verdadeiro|Falso
+50|S|O rato roeu a roupa do rei...|2|2|1|de Tóquio|de Paris|de Roma|de Estrasburgo

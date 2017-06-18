@@ -40,11 +40,10 @@ UserManager::~UserManager()
 
 void UserManager::deleteUserById(int id)
 {
-	std::vector<User*>::iterator it;
-	for(it = users->begin(); it != users->end(); ++it){
-		if((*it)->getId() == id){
-			(*it)->setActive('N');
-			NotebookManager::instance()->deleteNotebookById((*it)->getNotebook()->getId());
+	for(unsigned int i = 0; i < users->size(); i++){
+		if(users->at(i)->getId() == id){
+			users->at(i)->setActive('N');
+			NotebookManager::instance()->deleteNotebookById(users->at(i)->getNotebook()->getId());
 			break;
 		}
 	}
@@ -65,20 +64,19 @@ void UserManager::addUser(User *user)
 
 User *UserManager::searchUserById(int id)
 {
-	std::vector<User*>::iterator it;
-	for(it = users->begin(); it != users->end(); ++it){
-		if((*it)->getId() == id){
-			return (*it);
+	for(unsigned int i = 0; i < users->size(); i++){
+		if(users->at(i)->getId() == id){
+			return users->at(i);
 		}
 	}
 	return NULL;
 }
 
 User* UserManager::searchUserByUsername(std::string username){
-	std::vector<User*>::iterator it;
-	for(it = users->begin(); it != users->end(); ++it){
-		if((*it)->getLogin() == username){
-			return (*it);
+
+	for(unsigned int i = 0; i < users->size(); i++){
+		if(users->at(i)->getLogin() == username){
+			return users->at(i);
 		}
 	}
 	return NULL;

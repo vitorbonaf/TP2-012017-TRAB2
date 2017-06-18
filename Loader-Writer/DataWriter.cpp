@@ -16,6 +16,7 @@
 #include "../Entity/Quiz.h"
 #include "../Entity/Subject.h"
 #include "../Entity/User.h"
+#include "../Entity/Score.h"
 
 #include "../Manager/QuestionManager.h"
 #include "../Manager/NotebookManager.h"
@@ -23,6 +24,7 @@
 #include "../Manager/SubjectManager.h"
 #include "../Manager/TopicManager.h"
 #include "../Manager/UserManager.h"
+#include "../Manager/ScoreManager.h"
 
 DataWriter* DataWriter::inst = 0;
 
@@ -185,6 +187,26 @@ void DataWriter::saveTopics()
 	fp.close();
 }
 
+void DataWriter::saveScores()
+{
+	std::ofstream fp("./Data/score.txt");
+
+	std::vector<Score*> *scores = ScoreManager::instance()->getScores();
+
+	for(unsigned int i = 0; i < scores->size(); i++){
+		if(i !=0){
+			fp << std::endl;
+		}
+
+		fp << scores->at(i)->getUser() << "|";
+		fp << scores->at(i)->getPoints() << "|";
+		fp << scores->at(i)->getTime();
+
+	}
+
+	fp.close();
+}
+
 DataWriter::~DataWriter() {
 	// TODO Auto-generated destructor stub
 }
@@ -198,6 +220,7 @@ void DataWriter::saveData()
 	saveSubjects();
 	saveNotebooks();
 	saveUsers();
+	saveScores();
 }
 
 DataWriter *DataWriter::instance()

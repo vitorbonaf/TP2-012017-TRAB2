@@ -20,6 +20,7 @@
 #include "../Entity/Quiz.h"
 #include "../Entity/Subject.h"
 #include "../Entity/User.h"
+#include "../Entity/Score.h"
 
 #include "../Manager/QuestionManager.h"
 #include "../Manager/NotebookManager.h"
@@ -27,6 +28,7 @@
 #include "../Manager/SubjectManager.h"
 #include "../Manager/TopicManager.h"
 #include "../Manager/UserManager.h"
+#include "../Manager/ScoreManager.h"
 
 DataLoader* DataLoader::inst = 0;
 
@@ -467,6 +469,63 @@ void DataLoader::loadSubjects()
 
 }
 
+void DataLoader::loadScores(){
+	FILE *fp;
+
+	// Abertura de arquivo já existente
+	// Caso não exista o arquivo o programa encerra com uma mensagem indicando o erro.
+	if((fp = fopen("./Data/score.txt", "r")) == NULL){
+		std::cout << "Arquivo de pontuações não encontrado. Programa encerrado." << std::endl;
+		exit(1);
+	}else{
+		// Print para controle durante o desenvolvimento
+		std::cout << "Arquivo de pontuações aberto" << std::endl;
+
+		// lineData é utilizado para leitura da linha
+		// charSplit é usado para receber o retorno da função de divisão pelo separador
+		char lineData[250], *charSplit;
+
+		// Variável auxiliar para saber o campo sendo lido no momento
+		int i;
+		while(!feof(fp)){
+			// Lê uma linha
+			fgets(lineData, 250, fp);
+			// Ignora o \n ao final da linha
+			charSplit = strtok(lineData, "\n");
+			// Separa os dados da linha a cada | (separador escolhido)
+			charSplit = strtok(lineData, "|");
+
+			// Alocando memória para a pontuação a ser adicionada
+			Score *score= new Score();
+
+			// Definindo i = 0 para indicar a leitura do primeiro campo de pontuação
+			i = 0;
+
+			while(charSplit != NULL){
+				switch(i){
+				// Primeiro campo do arquivo: user
+				case 0: score->setUser(std::string(charSplit));
+						break;
+				// Segundo campo do arquivo: points
+				case 1: score->setPoints(atoi(charSplit));
+						break;
+				// Terceiro campo do arquivo: time
+				case 2:	score->setTime(atoi(charSplit));
+						break;
+				}
+				i++;
+				charSplit = strtok(NULL, "|");
+			}
+			ScoreManager::instance()->addScore(score);
+		}
+
+	}
+
+	// Fecha arquivo
+	fclose(fp);
+	// Print para controle durante o desenvolvimento
+	std::cout << "Arquivo de pontuações fechado" << std::endl;
+}
 
 void DataLoader::loadData()
 {
@@ -478,8 +537,8 @@ void DataLoader::loadData()
 	loadSubjects();
 	loadNotebooks();
 	loadUsers();
+	loadScores();
 }
-
 DataLoader::~DataLoader() {
 	// TODO Auto-generated destructor stub
 }
