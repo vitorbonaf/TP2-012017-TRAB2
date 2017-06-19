@@ -37,10 +37,9 @@ QuestionManager::~QuestionManager() {
 
 void QuestionManager::deleteQuestionById(int id)
 {
-	std::vector<Question*>::iterator it;
-	for(it = questions->begin(); it != questions->end(); ++it){
-		if((*it)->getId() == id){
-			(*it)->setActive('N');
+	for(unsigned int i = 0; i < questions->size(); i++){
+		if(questions->at(i)->getId() == id){
+			questions->at(i)->setActive('N');
 			break;
 		}
 	}
@@ -61,10 +60,9 @@ void QuestionManager::addQuestionWithoutId(Question *question)
 
 Question *QuestionManager::searchQuestionById(int id)
 {
-	std::vector<Question*>::iterator it;
-	for(it = questions->begin(); it != questions->end(); ++it){
-		if((*it)->getId() == id){
-			return (*it);
+	for(unsigned int i = 0; i < questions->size(); i++){
+		if(questions->at(i)->getId() == id){
+			return questions->at(i);
 		}
 	}
 	return NULL;

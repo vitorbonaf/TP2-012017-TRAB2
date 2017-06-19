@@ -40,13 +40,11 @@ SubjectManager::~SubjectManager() {
 
 void SubjectManager::deleteSubjectById(int id)
 {
-	std::vector<Subject*>::iterator it;
-	for(it = subjects->begin(); it != subjects->end(); ++it){
-		if((*it)->getId() == id){
-			(*it)->setActive('N');
-			std::vector<Topic*>::iterator it2;
-			for(it2 = (*it)->getTopics()->begin(); it2 != (*it)->getTopics()->end(); ++it2){
-				TopicManager::instance()->deleteTopicById((*it2)->getId());
+	for(unsigned int i = 0; i < subjects->size(); i++){
+		if(subjects->at(i)->getId() == id){
+			subjects->at(i)->setActive('N');
+			for(unsigned int j = 0; j < subjects->at(i)->getTopics()->size(); j++){
+				TopicManager::instance()->deleteTopicById(subjects->at(i)->getTopics()->at(j)->getId());
 			}
 			break;
 		}
@@ -65,10 +63,9 @@ void SubjectManager::addSubject(Subject *subject)
 
 Subject *SubjectManager::searchSubjectById(int id)
 {
-	std::vector<Subject*>::iterator it;
-	for(it = subjects->begin(); it != subjects->end(); ++it){
-		if((*it)->getId() == id){
-			return (*it);
+	for(unsigned int i = 0; i < subjects->size(); i++){
+		if(subjects->at(i)->getId() == id){
+			return subjects->at(i);
 		}
 	}
 	return NULL;

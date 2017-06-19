@@ -39,13 +39,11 @@ TopicManager::~TopicManager() {
 
 void TopicManager::deleteTopicById(int id)
 {
-	std::vector<Topic*>::iterator it;
-	for(it = topics->begin(); it != topics->end(); ++it){
-		if((*it)->getId() == id){
-			(*it)->setActive('N');
-			std::vector<Quiz*>::iterator it2;
-			for(it2 = (*it)->getQuizzes()->begin(); it2 != (*it)->getQuizzes()->end(); ++it2){
-				QuizManager::instance()->deleteQuizById((*it2)->getId());
+	for(unsigned int i = 0; i < topics->size(); i++){
+		if(topics->at(i)->getId() == id){
+			topics->at(i)->setActive('N');
+			for(unsigned int j = 0; j < topics->at(i)->getQuizzes()->size(); j++){
+				QuizManager::instance()->deleteQuizById(topics->at(i)->getQuizzes()->at(j)->getId());
 			}
 			break;
 		}
@@ -60,10 +58,9 @@ void TopicManager::addTopic(Topic *topic)
 
 Topic *TopicManager::searchTopicById(int id)
 {
-	std::vector<Topic*>::iterator it;
-	for(it = topics->begin(); it != topics->end(); ++it){
-		if((*it)->getId() == id){
-			return (*it);
+	for(unsigned int i = 0; i < topics->size(); i++){
+		if(topics->at(i)->getId() == id){
+			return topics->at(i);
 		}
 	}
 	return NULL;

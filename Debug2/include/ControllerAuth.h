@@ -7,11 +7,13 @@
 /// AUTHENTICATION
 
 class ControllerAuth {
-
+private:
+	ControllerAuth();
+	static ControllerAuth *inst;
 public:
+	static ControllerAuth* instance();
     User * requestAuth (void);
     User * authenticate (const std::string &, const std::string &);
     ~ControllerAuth(void);
-    ControllerAuth(void);
 };
 #endif

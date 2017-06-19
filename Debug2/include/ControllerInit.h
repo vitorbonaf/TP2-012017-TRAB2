@@ -12,15 +12,15 @@
 
 class ControllerInit {
 private:
-    ControllerAuth  * controllerAuth;
-    ControllerUser  * controllerUser;
-    ControllerAdmin * controllerAdmin;
-    ControllerQuiz  * controllerQuiz;
     User * user = NULL;
+    static ControllerInit *inst;
+    ControllerInit();
 public:
-    void showUI (void);
-    void initialize(void);
+    void initializeSystem();
+    static ControllerInit* instance();
     ~ControllerInit(void);
+    User* getLoggedUser();
+    void showUI();
 };
 
 #endif

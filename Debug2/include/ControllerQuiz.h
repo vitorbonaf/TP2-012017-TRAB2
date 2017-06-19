@@ -6,9 +6,12 @@
 /// Quiz
 
 class ControllerQuiz {
+private:
+	ControllerQuiz();
+	static ControllerQuiz *inst;
 public:
+	static ControllerQuiz* instance();
     void answerQuiz(User *);
-    ControllerQuiz();
     ~ControllerQuiz();
 };
 

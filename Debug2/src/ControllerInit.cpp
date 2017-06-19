@@ -7,29 +7,31 @@
 #include <cstdlib>
 #include <string>
 #include <iostream>
-#include "ControllerInit.h"
-#include "ControllerAuth.h"
-#include "ControllerUser.h"
-#include "ControllerAdmin.h"
-#include "ControllerQuiz.h"
 
+#include "ControllerInit.h"
+
+#include "DataLoader.h"
+#include "DataWriter.h"
+
+ControllerInit* ControllerInit::inst = 0;
 /// INITIALIZATION MODULE
 
-void ControllerInit::initialize() {
-    /// Esta funcao cria todas os modulos e interfaces e define as relacoes do tipo
-    /// cliente-servidor.
-    this->controllerAuth  = new ControllerAuth();
-    this->controllerUser  = new ControllerUser();
-    this->controllerAdmin = new ControllerAdmin();
-    this->controllerQuiz  = new ControllerQuiz();
+ControllerInit::ControllerInit(){
+
+}
+void ControllerInit::initializeSystem(){
+	DataLoader::instance()->loadData();
+	showUI();
+}
+
+ControllerInit* ControllerInit::instance(){
+	if (ControllerInit::inst == NULL){
+		ControllerInit::inst = new ControllerInit();
+	}
+	return ControllerInit::inst;
 }
 
 ControllerInit::~ControllerInit() {
-    /// Destrutor da classe controladora de inicializacao. Destroi todos os modulos.
-    delete controllerAuth;
-    delete controllerUser;
-    delete controllerAdmin;
-    delete controllerQuiz;
 }
 
 void ControllerInit::showUI() {
@@ -38,35 +40,59 @@ void ControllerInit::showUI() {
     /// requerido a interface adequada.
 
     int sel = -1;
-    while(sel != 0) {
-        system(CLEAR);
-        std::cout << "QuizTime - Menu principal\n\n";
 
-        if(user == NULL) {
-            std::cout << "1. Fazer log-in\n";
-        } else {
-            std::cout << "1. Gerenciar informacoes pessoais\n";
-            std::cout << "2. Gerenciar disciplinas\n";
-            std::cout << "3. Responder quiz\n";
-            if(user->getProfile() == 'A') {
-                std::cout << "4. Gerenciar banco de dados de alunos\n";
-                std::cout << "5. Gerenciar banco de dados de disciplinas\n";
-            }
-            std::cout << "9. Fazer log-out\n";
-        }
-        std::cout << "0. Sair\n";
-        std::cout << "\nInforme a opcao desejada: ";
+	system(CLEAR);
+	std::cout << "QuizTime - Menu principal\n\n";
 
-        std::cin >> sel;
+	if(user == NULL) {
+		std::cout << "1. Fazer log-in\n";
+	} else {
+		std::cout << "1. Gerenciar informacoes pessoais\n";
+		std::cout << "2. Gerenciar disciplinas\n";
+		std::cout << "3. Responder quiz\n";
+		if(user->getProfile() == 'A') {
+			std::cout << "4. Gerenciar banco de dados de alunos\n";
+			std::cout << "5. Gerenciar banco de dados de disciplinas\n";
+		}
+		std::cout << "9. Fazer log-out\n";
+	}
+	std::cout << "0. Sair\n";
+	std::cout << "\nInforme a opcao desejada: ";
 
-        switch(sel) {
-            case 1: user = this->controllerAuth->requestAuth();     sel = -1; break;
-            case 2: this->controllerUser->manageUserSubjects(user); sel = -1; break;
-            case 3: this->controllerQuiz->answerQuiz(user);         sel = -1; break;
-            case 4: this->controllerAdmin->manageStudents();        sel = -1; break;
-            case 5: this->controllerAdmin->manageSubjects();        sel = -1; break;
-            case 9: user = NULL;                                    sel = -1; break;
-            default: break;
-        }
-    }
+	std::cin >> sel;
+
+	if(user == NULL){
+		switch(sel){
+		case 1: user = ControllerAuth::instance()->requestAuth(); showUI();break;
+		case 0: DataWriter::instance()->saveData(); break;
+		default: showUI();
+		}
+	}else{
+		if (user->getProfile() == 'A'){
+			switch(sel) {
+			case 1: ControllerUser::instance()->manageUserData(user); break;
+			case 2: ControllerUser::instance()->manageUserSubjects(user); break;
+			case 3: ControllerQuiz::instance()->answerQuiz(user); showUI(); break;
+			case 4: ControllerAdmin::instance()->manageStudents(); break;
+			case 5: ControllerAdmin::instance()->manageSubjects(); break;
+			case 9: user = NULL; showUI(); break;
+			case 0: DataWriter::instance()->saveData();break;
+			default: showUI();
+			}
+		}else{
+			switch(sel){
+			case 1: ControllerUser::instance()->manageUserData(user); break;
+			case 2: ControllerUser::instance()->manageUserSubjects(user); break;
+			case 3: ControllerQuiz::instance()->answerQuiz(user); showUI(); break;
+			case 9: user = NULL; showUI();break;
+			case 0: DataWriter::instance()->saveData();break;
+			default: showUI();
+			}
+		}
+	}
+
 } 
+
+User* ControllerInit::getLoggedUser(){
+	return user;
+}

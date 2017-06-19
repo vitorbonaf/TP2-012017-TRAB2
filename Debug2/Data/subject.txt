@@ -1,0 +1,6 @@
+1|S|Matemática|1|2
+2|N|Geografia
+3|S|Ballet
+4|N|Truco|4
+5|S|Ciência Aeronáutica|5
+6|S|Biologia|6

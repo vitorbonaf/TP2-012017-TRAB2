@@ -46,13 +46,12 @@ void QuizManager::addQuiz(Quiz *quiz)
 
 void QuizManager::deleteQuizById(int id)
 {
-	std::vector<Quiz*>::iterator it;
-	for(it = quizzes->begin(); it != quizzes->end(); ++it){
-		if((*it)->getId() == id){
-			(*it)->setActive('N');
+	for(unsigned int i = 0; i < quizzes->size(); i++){
+		if(quizzes->at(i)->getId() == id){
+			quizzes->at(i)->setActive('N');
 			std::vector<Question*>::iterator it2;
-			for(it2 = (*it)->getQuestions()->begin(); it2 != (*it)->getQuestions()->end(); ++it2){
-				QuestionManager::instance()->deleteQuestionById((*it2)->getId());
+			for(unsigned int j = 0; j < quizzes->at(i)->getQuestions()->size(); j++){
+				QuestionManager::instance()->deleteQuestionById(quizzes->at(i)->getQuestions()->at(j)->getId());
 			}
 			break;
 		}
@@ -61,10 +60,9 @@ void QuizManager::deleteQuizById(int id)
 
 Quiz *QuizManager::searchQuizById(int id)
 {
-	std::vector<Quiz*>::iterator it;
-	for(it = quizzes->begin(); it != quizzes->end(); ++it){
-		if((*it)->getId() == id){
-			return (*it);
+	for(unsigned int i = 0; i < quizzes->size(); i++){
+		if(quizzes->at(i)->getId() == id){
+			return quizzes->at(i);
 		}
 	}
 	return NULL;

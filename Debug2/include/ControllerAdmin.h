@@ -2,7 +2,11 @@
 #define CONTROLLER_ADMIN_H
 
 class ControllerAdmin {
+private:
+	static ControllerAdmin *inst;
+	ControllerAdmin();
 public:
+	static ControllerAdmin* instance();
     void manageStudents();
     void includeStudent();
     void removeStudent();
@@ -13,7 +17,6 @@ public:
     void removeSubject();
     void removeTopic();
     void removeQuiz();
-    ControllerAdmin();
     ~ControllerAdmin();
 }; 
 

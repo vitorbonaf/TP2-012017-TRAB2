@@ -50,10 +50,9 @@ void NotebookManager::addNotebookWithoutId(Notebook *notebook)
 
 Notebook *NotebookManager::searchNotebookById(int id)
 {
-	std::vector<Notebook*>::iterator it;
-	for(it = notebooks->begin(); it != notebooks->end(); ++it){
-		if((*it)->getId() == id){
-			return (*it);
+	for(unsigned int i = 0; i < notebooks->size(); i++){
+		if(notebooks->at(i)->getId() == id){
+			return notebooks->at(i);
 		}
 	}
 	return NULL;
@@ -71,14 +70,9 @@ void NotebookManager::addNotebook(Notebook *notebook)
 
 void NotebookManager::deleteNotebookById(int id)
 {
-	std::vector<Notebook*>::iterator it;
-	for(it = notebooks->begin(); it != notebooks->end(); ++it){
-		if((*it)->getId() == id){
-			(*it)->setActive('N');
-			std::vector<Subject*>::iterator it2;
-			for(it2 = (*it)->getSubjects()->begin(); it2 != (*it)->getSubjects()->end(); ++it2){
-				SubjectManager::instance()->deleteSubjectById((*it2)->getId());
-			}
+	for(unsigned int i = 0; notebooks->size(); i++){
+		if(notebooks->at(i)->getId() == id){
+			notebooks->at(i)->setActive('N');
 			break;
 		}
 	}
