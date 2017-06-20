@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.9.1"/>
+<title>QuizTime: Código-Fonte de include/ControllerUser.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">QuizTime
+   &#160;<span id="projectnumber">Parte II</span>
+   </div>
+   <div id="projectbrief">Trabalho prático 2 da disciplina Técnicas de Programação 2 - UnB  1/2017</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.8.9.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Localizar');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Página&#160;principal</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="files.html"><span>Ficheiros</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Localizar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Lista&#160;de&#160;ficheiros</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">ControllerUser.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef CONTROLLER_USER_H</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define CONTROLLER_USER_H</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;string.h&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;User.h&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="class_controller_user.html">   10</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_controller_user.html">ControllerUser</a> {</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <a class="code" href="class_controller_user.html">ControllerUser</a>();</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keyword">static</span> <a class="code" href="class_controller_user.html">ControllerUser</a> *inst;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordtype">bool</span> subjectInNotebook(<a class="code" href="class_user.html">User</a> *user, <a class="code" href="class_subject.html">Subject</a> *subject);</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keyword">static</span> <a class="code" href="class_controller_user.html">ControllerUser</a>* instance();</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_controller_user.html#a801b7c786a965e610a4e57842751e887">manageUserData</a> (<a class="code" href="class_user.html">User</a> *);</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_controller_user.html#a541ac2be094e6a913b46072cdfaa2e55">manageUserSubjects</a> (<a class="code" href="class_user.html">User</a> *);</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_controller_user.html#a5db82806beb1fe9467edc89405630716">changeName</a>(<a class="code" href="class_user.html">User</a> *);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_controller_user.html#ad733c6e9d4e48eb5c444e9db8a7bde7a">changePass</a>(<a class="code" href="class_user.html">User</a> *);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordtype">void</span> showSubjects(<a class="code" href="class_user.html">User</a> *);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_controller_user.html#a255d7ae8dd73e9d1336f9ee5858474b1">includeSubject</a>(<a class="code" href="class_user.html">User</a> *);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_controller_user.html#ac7369e11c1e15000c84c23b5029f81b2">removeSubject</a>(<a class="code" href="class_user.html">User</a> *);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    ~<a class="code" href="class_controller_user.html">ControllerUser</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;};</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="class_controller_user_html_a541ac2be094e6a913b46072cdfaa2e55"><div class="ttname"><a href="class_controller_user.html#a541ac2be094e6a913b46072cdfaa2e55">ControllerUser::manageUserSubjects</a></div><div class="ttdeci">void manageUserSubjects(User *)</div><div class="ttdef"><b>Definition:</b> ControllerUser.cpp:58</div></div>
+<div class="ttc" id="class_user_html"><div class="ttname"><a href="class_user.html">User</a></div><div class="ttdef"><b>Definition:</b> User.h:16</div></div>
+<div class="ttc" id="class_controller_user_html_ac7369e11c1e15000c84c23b5029f81b2"><div class="ttname"><a href="class_controller_user.html#ac7369e11c1e15000c84c23b5029f81b2">ControllerUser::removeSubject</a></div><div class="ttdeci">void removeSubject(User *)</div><div class="ttdef"><b>Definition:</b> ControllerUser.cpp:172</div></div>
+<div class="ttc" id="class_controller_user_html"><div class="ttname"><a href="class_controller_user.html">ControllerUser</a></div><div class="ttdoc">USER. </div><div class="ttdef"><b>Definition:</b> ControllerUser.h:10</div></div>
+<div class="ttc" id="class_controller_user_html_a255d7ae8dd73e9d1336f9ee5858474b1"><div class="ttname"><a href="class_controller_user.html#a255d7ae8dd73e9d1336f9ee5858474b1">ControllerUser::includeSubject</a></div><div class="ttdeci">void includeSubject(User *)</div><div class="ttdef"><b>Definition:</b> ControllerUser.cpp:136</div></div>
+<div class="ttc" id="class_controller_user_html_a5db82806beb1fe9467edc89405630716"><div class="ttname"><a href="class_controller_user.html#a5db82806beb1fe9467edc89405630716">ControllerUser::changeName</a></div><div class="ttdeci">void changeName(User *)</div><div class="ttdef"><b>Definition:</b> ControllerUser.cpp:84</div></div>
+<div class="ttc" id="class_subject_html"><div class="ttname"><a href="class_subject.html">Subject</a></div><div class="ttdef"><b>Definition:</b> Subject.h:15</div></div>
+<div class="ttc" id="class_controller_user_html_a801b7c786a965e610a4e57842751e887"><div class="ttname"><a href="class_controller_user.html#a801b7c786a965e610a4e57842751e887">ControllerUser::manageUserData</a></div><div class="ttdeci">void manageUserData(User *)</div><div class="ttdef"><b>Definition:</b> ControllerUser.cpp:34</div></div>
+<div class="ttc" id="class_controller_user_html_ad733c6e9d4e48eb5c444e9db8a7bde7a"><div class="ttname"><a href="class_controller_user.html#ad733c6e9d4e48eb5c444e9db8a7bde7a">ControllerUser::changePass</a></div><div class="ttdeci">void changePass(User *)</div><div class="ttdef"><b>Definition:</b> ControllerUser.cpp:101</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.9.1
+</small></address>
+</body>
+</html>

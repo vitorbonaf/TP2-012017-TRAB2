@@ -43,8 +43,8 @@ ControllerAdmin* ControllerAdmin::instance(){
 }
 
 void ControllerAdmin::manageStudents() {
-    /// Esta funcao exibe um menu para que o usuario selecione a acao desejada. Após
-    /// a selecao, é chamada a funcao adequada para realizacao da acao desejada.
+    /// Esta funcao exibe um menu para que o usuario selecione a acao desejada.
+    /// Apos a selecao, chama a funcao adequada para realizacao da acao desejada.
     int sel = -1;
 
 	system(CLEAR);
@@ -109,7 +109,7 @@ void ControllerAdmin::removeStudent() {
     /// para ser removido e remove o usuario selecionado.
     std::map <int, User*> user_map;
     int sel = -1;
-    int i;
+    int i = 1;
     std::vector<User*> *users = UserManager::instance()->getUsers();
 
 	system(CLEAR);

@@ -109,7 +109,7 @@ void ControllerAdmin::removeStudent() {
     /// para ser removido e remove o usuario selecionado.
     std::map <int, User*> user_map;
     int sel = -1;
-    int i;
+    int i = 1;
     std::vector<User*> *users = UserManager::instance()->getUsers();
 
 	system(CLEAR);
