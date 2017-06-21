@@ -52,7 +52,6 @@ void ControllerQuiz::answerQuiz(User * user) {
 		std::cout << "QuizTime - Responder Quiz\n\n";
 		i = 1;
 		std::vector<Subject*> *subjects = user->getNotebook()->getSubjects();
-		//for(auto it:*(SubjectManager::instance()->getSubjects())){
 		for(unsigned int j = 0; j < subjects->size(); j++){
 			Subject *sub = subjects->at(j);
 			if(sub->getActive() == 'S'){
@@ -71,7 +70,6 @@ void ControllerQuiz::answerQuiz(User * user) {
 				system(CLEAR);
 				std::cout << "QuizTime - Responder Quiz\n\n";
 				i = 1;
-				//for(auto it:*(subs_map[sel1]->getTopics())){
 				for(unsigned int k = 0; k < subs_map[sel1]->getTopics()->size(); k++){
 					Topic * top = subs_map[sel1]->getTopics()->at(k);
 					if(top->getActive() == 'S'){

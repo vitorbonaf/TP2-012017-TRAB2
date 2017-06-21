@@ -29,7 +29,7 @@
 #include "QuizManager.h"
 #include "QuestionManager.h"
 
-// ADMINISTRATOR MODULE
+/// ADMINISTRATOR MODULE
 ControllerAdmin* ControllerAdmin::inst = 0;
 ControllerAdmin::ControllerAdmin () { }
 ControllerAdmin::~ControllerAdmin() { }

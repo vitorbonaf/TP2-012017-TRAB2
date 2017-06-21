@@ -140,11 +140,9 @@ void ControllerUser::includeSubject(User * user) {
     int sel = -1;
     int i;
     while(sel != 0) {
-        //auto subs=user->getNotebook()->getSubjects();
         system(CLEAR);
         std::cout <<"QuizTime - Matricula em Disciplina\n\n";
         i = 1;
-        //for(auto it:*(SubjectManager::instance()->getSubjects())){
         for(unsigned int j = 0; j < SubjectManager::instance()->getSubjects()->size(); j++){
             Subject * sub = SubjectManager::instance()->getSubjects()->at(j);
             if((!subjectInNotebook(user, sub)) && (sub->getActive() == 'S')){
@@ -181,7 +179,6 @@ void ControllerUser::removeSubject(User * user) {
         system(CLEAR);
         std::cout << "QuizTime - Trancamento de Disciplina\n\n";
         i = 1;
-        //for(auto it:*(user->getNotebook()->getSubjects())) {       //TODO: verificar se isso funciona
         for(unsigned int j = 0; j < user->getNotebook()->getSubjects()->size(); j++){
             Subject *sub = user->getNotebook()->getSubjects()->at(j);
             std::cout << i << sub->getName() << "\n";

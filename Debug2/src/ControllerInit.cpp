@@ -13,9 +13,8 @@
 #include "DataLoader.h"
 #include "DataWriter.h"
 
-ControllerInit* ControllerInit::inst = 0;
 /// INITIALIZATION MODULE
-
+ControllerInit* ControllerInit::inst = 0;
 ControllerInit::ControllerInit(){
 
 }
