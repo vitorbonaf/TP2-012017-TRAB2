@@ -48,3 +48,13 @@
 48|S|Não há lugar como...|2|2|1|a cama|o shopping|o lar|o mar
 49|S|Romeu e Julieta eram de famílias rivais.|1|0|1|Verdadeiro|Falso
 50|S|O rato roeu a roupa do rei...|2|2|1|de Tóquio|de Paris|de Roma|de Estrasburgo
+51|S|Os besouros pertencem a ordem Coleoptera.|1|0|1|Verdadeiro|Falso
+52|S|Baleias sao mamiferos.|1|0|1|Verdadeiro|Falso
+53|S|Salamandras sao repteis.|1|1|1|Verdadeiro|Falso
+54|S|Os percevejos pertencem a ordem Orthoptera.|1|1|1|Verdadeiro|Falso
+55|S|Tubaroes possuem escamas.|1|1|1|Verdadeiro|Falso
+56|S|Os cupins pertencem a qual ordem?|2|3|2|Coleoptera|Hemiptera|Orthoptera|Isoptera
+57|S|As aves possuem maior proximidade filogenetica com qual grupo?|2|0|2|Repteis|Mamiferos|Peixes|Anfibios
+58|S|A qual filo pertencem as esponjas?|2|2|2|Cnidaria|Chordata|Porifera|Arthropoda
+59|S|Quantas especies de artropodes ja foram descritas?|2|3|2|Menos de 100.000|Menos de 500.000|Menos de 800.000|Mais de 1.000.000
+60|S|A qual ordem pertencem as vespas?|2|2|2|Hemiptera|Neuroptera|Hymenoptera|Isoptera

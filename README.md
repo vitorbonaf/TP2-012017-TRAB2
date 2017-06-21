@@ -16,3 +16,6 @@ Durante o desenvolvimento do trabalho, o grupo buscou aplicar os conceitos de pr
 Contribuicoes:
 Vitor - Entities, Managers, Loader/Writer
 Camila - Arquitetura, Controllers, Roteiro de Teste
+
+Instrucoes para compilacao:
+Digitar o comando make na pasta do projeto.
