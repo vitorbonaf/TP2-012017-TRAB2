@@ -185,14 +185,14 @@ void ControllerAdmin::includeSubject() {
     do{
     	std::cout << "Nome da disciplina: ";
     	getline(std::cin, name);
-		getline(std::cin, name);
-		std::vector<Subject*> *subjects = SubjectManager::instance()->getSubjects();
-		for(unsigned int i; i < subjects->size(); i++){
-			if (!subjects->at(i)->getName().compare(name) && subjects->at(i)->getActive() == 'S'){
-				nameAvailable = false;
-				break;
-			}
-		}
+        getline(std::cin, name);
+//		std::vector<Subject*> *subjects = SubjectManager::instance()->getSubjects();
+//		for(unsigned int i; i < subjects->size(); i++){
+//			if (!subjects->at(i)->getName().compare(name) && subjects->at(i)->getActive() == 'S'){
+//				nameAvailable = false;
+//				break;
+//			}
+//		}
 
 		if(!nameAvailable){
 			std::cout << "\nNome indisponível, disciplina já existente. Escolha outro nome.\n\n";
@@ -202,7 +202,7 @@ void ControllerAdmin::includeSubject() {
     sub->setName(name);
 	sub->setActive('S');
 	SubjectManager::instance()->addSubjectWithoutId(sub);
-	ControllerInit::instance()->getLoggedUser()->getNotebook()->getSubjects()->push_back(sub);
+//	ControllerInit::instance()->getLoggedUser()->getNotebook()->getSubjects()->push_back(sub);
 	std::cout << "\nDisciplina cadastrada com sucesso.\n";
 	getchar();
 }
