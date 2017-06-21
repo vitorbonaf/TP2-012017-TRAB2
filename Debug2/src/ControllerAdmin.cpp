@@ -67,6 +67,7 @@ void ControllerAdmin::includeStudent() {
     /// Esta funcao permite ao usuario dar entrada nos dados de cadastro de um novo
     /// aluno e cadastra um usuario com as informacoes recebidas.
     std::string name, login, pass, adm = "", aux;
+    bool loginAvailable;
     User *user = new User();
     Notebook *notebook = new Notebook();
     system(CLEAR);
@@ -74,8 +75,23 @@ void ControllerAdmin::includeStudent() {
     std::cout << "Nome do aluno: ";
     getline(std::cin, aux);
     getline(std::cin, name);
-    std::cout <<"Login: ";
-    std::cin  >> login;
+    
+    do{
+        loginAvailable = true;
+        std::cout <<"Login: ";
+        std::cin  >> login;    
+
+        std::vector<User*> *users = UserManager::instance()->getUsers();
+        for(unsigned int i = 0; i < users->size(); i++){
+            if(login == users->at(i)->getLogin()){
+                loginAvailable = false;
+                std::cout << "Login indisponivel, tente novamente" << std::endl;
+                getline(std::cin, aux);
+                break;
+            }
+        }
+    }while(!loginAvailable);
+    
     getline(std::cin, aux);
     std::cout <<"Senha: ";
     std::cin  >> pass;
@@ -216,6 +232,7 @@ void ControllerAdmin::includeTopic() {
     /// topico.
     std::map <int, Subject*> subs_map;
     std::string name;
+    bool topicAvailable;
     Topic * top = new Topic();
     int sel = -1;
     int i;
@@ -237,11 +254,23 @@ void ControllerAdmin::includeTopic() {
         std::cin  >> sel;
 
         if(sel != 0 && sel < i) {
-            std::cout << "Nome do novo topico: ";
-            getline(std::cin, name);
-            getline(std::cin, name); 
             
-            //TODO: checar se ja existe topico com esse nome!
+            getline(std::cin, name);
+            do{
+                topicAvailable = true;
+                std::cout << "Nome do novo topico: ";
+                getline(std::cin, name);
+                std::vector<Topic*> *topics = subs_map[sel]->getTopics();
+                for(unsigned int k = 0; k < topics->size(); k++){
+                    if(name == topics->at(k)->getName()){
+                        topicAvailable = false;
+                        std::cout << "Tópico já existente, tente novamente." << std::endl;
+                        break;
+                    }
+                }
+            }while(!topicAvailable);
+             
+            
             top->setName(name);
             top->setActive('S');
             TopicManager::instance()->addTopicWithoutId(top);
@@ -268,6 +297,7 @@ void ControllerAdmin::includeQuiz() {
     std::vector<Question*> *questions = new std::vector<Question*>();
     std::string name, quest, aux;
     std::vector<std::string> *answers;
+    bool quizAvailable;
     char ans;
     int sel1 = -1, sel2 = -1;
     int i, choice;
@@ -308,11 +338,22 @@ void ControllerAdmin::includeQuiz() {
                 std::cin  >> sel2;
 
                 if(sel2 != 0 && sel2 < i) {
-                    std::cout << "Nome do novo quiz: ";
+                   
                     getline(std::cin, name);
-                    getline(std::cin, name);
+                    do{
+                        quizAvailable = true;
+                        std::cout << "Nome do novo quiz: ";
+                        getline(std::cin, name);
+                        std::vector<Quiz*> *quizzes = tops_map[sel2]->getQuizzes();
+                        for(unsigned int l = 0; l < quizzes->size(); l++){
+                            if(name == quizzes->at(l)->getName()){
+                                quizAvailable = false;
+                                std::cout << "Nome de quiz indisponível. Tente novamente." << std::endl;
+                                break;
+                            }
+                        }
+                    }while(!quizAvailable);
 
-                    //TODO: checar se já existe quiz com esse nome!
 
                     for(int k=0; k<10; k++) {
                         ans = 'O';

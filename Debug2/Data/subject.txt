@@ -1,4 +1,4 @@
-1|S|Matematica|1|2
+1|S|Matematica|1|2|8|9
 2|N|Geografia
 3|N|Ballet|3
 4|N|Truco|4
