@@ -6,3 +6,5 @@
 6|S|Anderson Silva|anderson|spider|A|6
 7|N|Jair Rodrigues|jair|rodrigues|U|7
 8|N|Chinchila Maluca|fufs|123|U|8
+9|N|User|123|a|U|9
+10|S|User|user|123|U|10

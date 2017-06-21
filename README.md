@@ -12,3 +12,7 @@ Trabalho 2 - Implementacao do programa QuizTime - parte II conforme especificaco
 
 Descricao: O QuizTime é um programa que permite ao usuario estudar diferentes topicos de diversas disciplinas respondendo a quizzes.
 Durante o desenvolvimento do trabalho, o grupo buscou aplicar os conceitos de programacao sistematica vistos em sala de aula.
+
+Contribuicoes:
+Vitor - Entities, Managers, Loader/Writer
+Camila - Arquitetura, Controllers, Roteiro de Teste

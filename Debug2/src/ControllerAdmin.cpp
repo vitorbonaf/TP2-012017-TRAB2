@@ -29,9 +29,8 @@
 #include "QuizManager.h"
 #include "QuestionManager.h"
 
-ControllerAdmin* ControllerAdmin::inst = 0;
 // ADMINISTRATOR MODULE
-
+ControllerAdmin* ControllerAdmin::inst = 0;
 ControllerAdmin::ControllerAdmin () { }
 ControllerAdmin::~ControllerAdmin() { }
 
@@ -88,6 +87,7 @@ void ControllerAdmin::includeStudent() {
     	std::cout << "Resposta inadequada. Deseja atribuir ao aluno status de admin? (s/n)";
     	std::cin >> adm;
     }
+    //TODO: checar se já existe usuario com esse login
     user->setName(name);
     user->setLogin(login);
     user->setPassword(pass);
@@ -180,7 +180,7 @@ void ControllerAdmin::includeSubject() {
     bool nameAvailable = true;
     system(CLEAR);
     std::cout << "QuizTime - Cadastro de Disciplina\n\n";
-    //Checar se nome já existe
+    //TODO: Checar se já existe disciplina com esse nome
 
     do{
     	std::cout << "Nome da disciplina: ";
@@ -222,7 +222,6 @@ void ControllerAdmin::includeTopic() {
         system(CLEAR);
         std::cout << "QuizTime - Inserir Topico\n\n";
         i = 1;
-        //for(auto it:*(SubjectManager::instance()->getSubjects())){
         for(unsigned int j = 0; j < SubjectManager::instance()->getSubjects()->size(); j++){
             Subject *sub= SubjectManager::instance()->getSubjects()->at(j);
             if(sub->getActive() == 'S'){
@@ -238,21 +237,15 @@ void ControllerAdmin::includeTopic() {
         if(sel != 0 && sel < i) {
             std::cout << "Nome do novo topico: ";
             getline(std::cin, name);
-            getline(std::cin, name);
-
-            //std::vector<Topic*> * topics = TopicManager::instance()->getTopics();
-            //auto iter=std::find_if(topics->begin(),topics->end(),[it](Topic * comp){return comp.getName()==it->getName();});
-            //if(iter!=topics->end()) {
-                //std::cout << "Erro: topico ja cadastrado.\n";
-                //getchar();
-            //} else {
-                top->setName(name);
-                top->setActive('S');
-                TopicManager::instance()->addTopicWithoutId(top);
-                subs_map[sel]->getTopics()->push_back(top);
-                std::cout << "\nTopico cadastrado com sucesso.\n";
-                getchar();
-            //}
+            getline(std::cin, name); 
+            
+            //TODO: checar se ja existe topico com esse nome!
+            top->setName(name);
+            top->setActive('S');
+            TopicManager::instance()->addTopicWithoutId(top);
+            subs_map[sel]->getTopics()->push_back(top);
+            std::cout << "\nTopico cadastrado com sucesso.\n";
+            getchar();
         }
         else {
             if(sel != 0) {
@@ -282,7 +275,6 @@ void ControllerAdmin::includeQuiz() {
         printf("QuizTime - Criar Novo Quiz\n\n");
         i = 1;
         std::vector<Subject*> *subjects = SubjectManager::instance()->getSubjects();
-        //for(auto it:*(SubjectManager::instance()->getSubjects())){
         for(unsigned int j = 0; j < subjects->size(); j++){
             Subject *sub = subjects->at(j);
             if(sub->getActive() == 'S'){
@@ -301,7 +293,6 @@ void ControllerAdmin::includeQuiz() {
                 system(CLEAR);
                 std::cout << "QuizTime - Criar Novo Quiz\n\n";
                 i = 1;
-                //for(auto it:*(subs_map[sel1]->getTopics())){
                 for(unsigned int k = 0; k < subs_map[sel1]->getTopics()->size(); k++){
                     Topic * top = subs_map[sel1]->getTopics()->at(k);
                     if(top->getActive() == 'S'){
@@ -318,6 +309,8 @@ void ControllerAdmin::includeQuiz() {
                     std::cout << "Nome do novo quiz: ";
                     getline(std::cin, name);
                     getline(std::cin, name);
+
+                    //TODO: checar se já existe quiz com esse nome!
 
                     for(int k=0; k<10; k++) {
                         ans = 'O';
@@ -390,12 +383,6 @@ void ControllerAdmin::includeQuiz() {
                         QuestionManager::instance()->addQuestionWithoutId(question);
                         getline(std::cin, quest);
                     }
-                    //std::vector<Quiz*> * quizzes = QuizManager::instance()->getQuizzes();
-                    //auto iter=std::find_if(quizzes->begin(),quizzes->end(),[it](Quiz * comp){return comp.getName()==it->getName();});
-                    //if(iter!=quizzes->end()) {
-                        //std::cout << "\nErro: quiz jÃ¡ cadastrado.\n";
-                        //getchar();
-                    //} else {
                         Quiz * quiz = new Quiz();
                         quiz->setName(name);
                         quiz->setQuestions(questions);
@@ -404,7 +391,6 @@ void ControllerAdmin::includeQuiz() {
                         tops_map[sel2]->getQuizzes()->push_back(quiz);
                         std::cout << "\nQuiz cadastrado com sucesso.\n";
                         getchar();
-                    //}
                 } else {
                     if(sel2 != 0) {
                         std::cout << "Selecao de topico invalida.\n";
@@ -433,7 +419,6 @@ void ControllerAdmin::removeSubject() {
 		printf("QuizTime - Excluir Disciplina\n\n");
 		i = 1;
 		std::vector<Subject*> *subjects = SubjectManager::instance()->getSubjects();
-		//for(auto it:*(SubjectManager::instance()->getSubjects())){
 		for(unsigned int j = 0; j < subjects->size(); j++){
 			Subject *sub = subjects->at(j);
 			if(sub->getActive() == 'S'){
@@ -484,7 +469,6 @@ void ControllerAdmin::removeTopic() {
 		printf("QuizTime - Excluir Tópico\n\n");
 		i = 1;
 		std::vector<Subject*> *subjects = SubjectManager::instance()->getSubjects();
-		//for(auto it:*(SubjectManager::instance()->getSubjects())){
 		for(unsigned int j = 0; j < subjects->size(); j++){
 			Subject *sub = subjects->at(j);
 			if(sub->getActive() == 'S'){
@@ -553,7 +537,6 @@ void ControllerAdmin::removeQuiz() {
 		printf("QuizTime - Excluir Quiz\n\n");
 		i = 1;
 		std::vector<Subject*> *subjects = SubjectManager::instance()->getSubjects();
-		//for(auto it:*(SubjectManager::instance()->getSubjects())){
 		for(unsigned int j = 0; j < subjects->size(); j++){
 			Subject *sub = subjects->at(j);
 			if(sub->getActive() == 'S'){
@@ -572,7 +555,6 @@ void ControllerAdmin::removeQuiz() {
 				system(CLEAR);
 				std::cout << "QuizTime - Excluir Quiz\n\n";
 				i = 1;
-				//for(auto it:*(subs_map[sel1]->getTopics())){
 				for(unsigned int k = 0; k < subs_map[sel1]->getTopics()->size(); k++){
 					Topic * top = subs_map[sel1]->getTopics()->at(k);
 					if(top->getActive() == 'S'){
