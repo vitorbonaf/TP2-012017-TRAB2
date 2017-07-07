@@ -1,7 +1,7 @@
 bin/main.o: src/main.cpp include/ControllerAuth.h include/User.h \
  include/Notebook.h include/Subject.h include/Topic.h include/Quiz.h \
- include/Question.h include/User.h include/igloo/igloo_alt.h \
- include/igloo/igloo_framework.h \
+ include/Question.h include/User.h include/DataLoader.h \
+ include/igloo/igloo_alt.h include/igloo/igloo_framework.h \
  include/igloo/external/snowhouse/snowhouse/snowhouse.h \
  include/igloo/external/snowhouse/snowhouse/stringize.h \
  include/igloo/external/snowhouse/snowhouse/constraints/constraints.h \
@@ -76,6 +76,8 @@ include/Quiz.h:
 include/Question.h:
 
 include/User.h:
+
+include/DataLoader.h:
 
 include/igloo/igloo_alt.h:
 

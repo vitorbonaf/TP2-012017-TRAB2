@@ -1,5 +1,6 @@
 #include <ControllerAuth.h>
 #include <User.h>
+#include <DataLoader.h>
 #include <igloo/igloo_alt.h>
 #include <cstdlib>
 #include <string>
@@ -10,6 +11,7 @@ using namespace igloo;
 Describe(authentication_test)
 {
     void SetUp() {
+        DataLoader::instance()->loadData();
     }
 
     It(invalid_authentication) {

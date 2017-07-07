@@ -56,7 +56,7 @@ void DataLoader::loadQuizzes()
 		exit(1);
 	}else{
 		// Print para controle durante o desenvolvimento
-		std::cout << "Arquivo de quizzes aberto" << std::endl;
+		//std::cout << "Arquivo de quizzes aberto" << std::endl;
 
 		// lineData é utilizado para leitura da linha
 		// charSplit é usado para receber o retorno da função de divisão pelo separador
@@ -109,7 +109,7 @@ void DataLoader::loadQuizzes()
 	// Fecha arquivo
 	fclose(fp);
 	// Print para controle durante o desenvolvimento
-	std::cout << "Arquivo de quizzes fechado" << std::endl;
+	//std::cout << "Arquivo de quizzes fechado" << std::endl;
 
 }
 
@@ -124,7 +124,7 @@ void DataLoader::loadUsers()
 		exit(1);
 	}else{
 		// Print para controle durante o desenvolvimento
-		std::cout << "Arquivo de usuários aberto" << std::endl;
+		//std::cout << "Arquivo de usuários aberto" << std::endl;
 
 		// lineData é utilizado para leitura da linha
 		// charSplit é usado para receber o retorno da função de divisão pelo separador
@@ -182,7 +182,7 @@ void DataLoader::loadUsers()
 	// Fecha arquivo
 	fclose(fp);
 	// Print para controle durante o desenvolvimento
-	std::cout << "Arquivo de usuários fechado" << std::endl;
+	//std::cout << "Arquivo de usuários fechado" << std::endl;
 
 }
 
@@ -197,7 +197,7 @@ void DataLoader::loadTopics()
 		exit(1);
 	}else{
 		// Print para controle durante o desenvolvimento
-		std::cout << "Arquivo de tópicos aberto" << std::endl;
+		//std::cout << "Arquivo de tópicos aberto" << std::endl;
 
 		// lineData é utilizado para leitura da linha
 		// charSplit é usado para receber o retorno da função de divisão pelo separador
@@ -250,7 +250,7 @@ void DataLoader::loadTopics()
 	// Fecha arquivo
 	fclose(fp);
 	// Print para controle durante o desenvolvimento
-	std::cout << "Arquivo de tópicos fechado" << std::endl;
+	//std::cout << "Arquivo de tópicos fechado" << std::endl;
 
 }
 
@@ -265,7 +265,7 @@ void DataLoader::loadQuestions()
 		exit(1);
 	}else{
 		// Print para controle durante o desenvolvimento
-		std::cout << "Arquivo de questões aberto" << std::endl;
+		//std::cout << "Arquivo de questões aberto" << std::endl;
 
 		// lineData é utilizado para leitura da linha
 		// charSplit é usado para receber o retorno da função de divisão pelo separador
@@ -331,7 +331,7 @@ void DataLoader::loadQuestions()
 	// Fecha arquivo
 	fclose(fp);
 	// Print para controle durante o desenvolvimento
-	std::cout << "Arquivo de questões fechado" << std::endl;
+	//std::cout << "Arquivo de questões fechado" << std::endl;
 }
 
 void DataLoader::loadNotebooks()
@@ -346,7 +346,7 @@ void DataLoader::loadNotebooks()
 		exit(1);
 	}else{
 		// Print para controle durante o desenvolvimento
-		std::cout << "Arquivo de cadernos aberto" << std::endl;
+		//std::cout << "Arquivo de cadernos aberto" << std::endl;
 
 		// lineData é utilizado para leitura da linha
 		// charSplit é usado para receber o retorno da função de divisão pelo separador
@@ -396,7 +396,7 @@ void DataLoader::loadNotebooks()
 	// Fecha arquivo
 	fclose(fp);
 	// Print para controle durante o desenvolvimento
-	std::cout << "Arquivo de cadernos fechado" << std::endl;
+	//std::cout << "Arquivo de cadernos fechado" << std::endl;
 
 }
 
@@ -412,7 +412,7 @@ void DataLoader::loadSubjects()
 		exit(1);
 	}else{
 		// Print para controle durante o desenvolvimento
-		std::cout << "Arquivo de disciplinas aberto" << std::endl;
+		//std::cout << "Arquivo de disciplinas aberto" << std::endl;
 
 		// lineData é utilizado para leitura da linha
 		// charSplit é usado para receber o retorno da função de divisão pelo separador
@@ -465,7 +465,7 @@ void DataLoader::loadSubjects()
 	// Fecha arquivo
 	fclose(fp);
 	// Print para controle durante o desenvolvimento
-	std::cout << "Arquivo de disciplinas fechado" << std::endl;
+	//std::cout << "Arquivo de disciplinas fechado" << std::endl;
 
 }
 
@@ -479,7 +479,7 @@ void DataLoader::loadScores(){
 		exit(1);
 	}else{
 		// Print para controle durante o desenvolvimento
-		std::cout << "Arquivo de pontuações aberto" << std::endl;
+		//std::cout << "Arquivo de pontuações aberto" << std::endl;
 
 		// lineData é utilizado para leitura da linha
 		// charSplit é usado para receber o retorno da função de divisão pelo separador
@@ -524,7 +524,7 @@ void DataLoader::loadScores(){
 	// Fecha arquivo
 	fclose(fp);
 	// Print para controle durante o desenvolvimento
-	std::cout << "Arquivo de pontuações fechado" << std::endl;
+	//std::cout << "Arquivo de pontuações fechado" << std::endl;
 }
 
 void DataLoader::loadData()
