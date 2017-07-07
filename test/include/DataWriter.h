@@ -12,6 +12,10 @@ class DataWriter {
 private:
 	DataWriter();
 	static DataWriter* inst;
+public:
+	virtual ~DataWriter();
+	static DataWriter* instance();
+	void saveData();
 	void saveUsers();
 	void saveNotebooks();
 	void saveSubjects();
@@ -19,10 +23,6 @@ private:
 	void saveQuizzes();
 	void saveQuestions();
 	void saveScores();
-public:
-	virtual ~DataWriter();
-	static DataWriter* instance();
-	void saveData();
 };
 
 #endif /* DATAWRITER_H_ */

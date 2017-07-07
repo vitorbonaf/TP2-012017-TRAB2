@@ -12,6 +12,10 @@ class DataLoader {
 private:
 	DataLoader();
 	static DataLoader *inst;
+public:
+	virtual ~DataLoader();
+	static DataLoader* instance();
+	void loadData();
 	void loadUsers();
 	void loadNotebooks();
 	void loadSubjects();
@@ -19,10 +23,6 @@ private:
 	void loadQuizzes();
 	void loadQuestions();
 	void loadScores();
-public:
-	virtual ~DataLoader();
-	static DataLoader* instance();
-	void loadData();
 };
 
 #endif /* DATALOADER_H_ */
