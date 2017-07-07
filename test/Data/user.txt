@@ -1,0 +1,7 @@
+1|S|Vitor Bona de Faria|ADMIN|ADMIN|A|1
+2|S|Vitor Daher Montandon|montandon|montandon|U|2
+3|S|Braulio|braulio|123|A|3
+4|N|Joana|joana|456|U|4
+5|S|Camel|camel|case|A|5
+6|S|Anderson Silva|anderson|spider|A|6
+7|N|Jair Rodrigues|jair|rodrigues|U|7
