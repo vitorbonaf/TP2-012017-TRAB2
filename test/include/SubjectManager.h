@@ -24,8 +24,8 @@ public:
     std::vector<Subject*> *getSubjects() const;
     void setSubjects(std::vector<Subject*> *subjects);
     void addSubject(Subject* subject);
-    void addSubjectWithoutId(Subject* subject);
-    void deleteSubjectById(int id);
+    int addSubjectWithoutId(Subject* subject);
+    int deleteSubjectById(int id);
     Subject* searchSubjectById(int id);
 };
 

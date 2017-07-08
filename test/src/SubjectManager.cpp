@@ -38,7 +38,7 @@ SubjectManager::~SubjectManager() {
 }
 
 
-void SubjectManager::deleteSubjectById(int id)
+int SubjectManager::deleteSubjectById(int id)
 {
 	for(unsigned int i = 0; i < subjects->size(); i++){
 		if(subjects->at(i)->getId() == id){
@@ -46,9 +46,10 @@ void SubjectManager::deleteSubjectById(int id)
 			for(unsigned int j = 0; j < subjects->at(i)->getTopics()->size(); j++){
 				TopicManager::instance()->deleteTopicById(subjects->at(i)->getTopics()->at(j)->getId());
 			}
-			break;
+			return 1;
 		}
 	}
+    return 0;
 }
 
 
@@ -73,9 +74,10 @@ Subject *SubjectManager::searchSubjectById(int id)
 
 
 
-void SubjectManager::addSubjectWithoutId(Subject *subject)
+int SubjectManager::addSubjectWithoutId(Subject *subject)
 {
 	subject->setId(SubjectManager::nextSubjectID);
 	subjects->push_back(subject);
 	SubjectManager::nextSubjectID++;
+    subject->getId();
 }

@@ -25,7 +25,7 @@ public:
     void setTopics(std::vector<Topic*> *topics);
     void addTopic(Topic* topic);
     void addTopicWithoutId(Topic* topic);
-    void deleteTopicById(int id);
+    int deleteTopicById(int id);
     Topic* searchTopicById(int id);
 };
 

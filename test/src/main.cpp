@@ -1,4 +1,6 @@
 #include <ControllerAuth.h>
+#include <SubjectManager.h>
+#include <TopicManager.h>
 #include <User.h>
 #include <UserManager.h>
 #include <DataLoader.h>
@@ -88,6 +90,95 @@ Describe(edit_personal_data_test){
     }
 
 
+};
+
+Describe(search_subject_test)
+{
+    void SetUp() {
+        DataLoader::instance()->loadData();
+    }
+
+    It(invalid_subject_search) {
+        Subject * null_subject = NULL;
+        int invalid_id = 100;
+
+        // Caso invalido
+        Assert::That(SubjectManager::instance()->searchSubjectById(invalid_id), Is().EqualTo(null_subject));
+    }
+
+    It(valid_subject_search) {
+
+        // Caso valido
+        int valid_id = 1;
+        Subject * null_subject = NULL;
+
+        Assert::That(SubjectManager::instance()->searchSubjectById(valid_id), Is().Not().EqualTo(null_subject));
+    }
+};
+
+Describe(remove_subject_test)
+{
+    void SetUp() {
+        DataLoader::instance()->loadData();
+    }
+
+    It(invalid_subject_removal) {
+        int invalid_id = 100;
+
+        // Caso invalido
+        Assert::That(SubjectManager::instance()->deleteSubjectById(invalid_id), Equals(0));
+    }
+
+    It(valid_subject_removal) {
+
+        // Caso valido
+        int valid_id = 7;
+        Assert::That(SubjectManager::instance()->deleteSubjectById(valid_id), Equals(1));
+    }
+};
+
+Describe(search_topic_test)
+{
+    void SetUp() {
+        DataLoader::instance()->loadData();
+    }
+
+    It(invalid_topic_search) {
+        Topic * null_topic = NULL;
+        int invalid_id = 100;
+
+        // Caso invalido        
+        Assert::That(TopicManager::instance()->searchTopicById(invalid_id), Is().EqualTo(null_topic));
+    }
+
+    It(valid_topic_search) {
+
+        // Caso valido
+        int valid_id = 1;
+        Topic * null_topic = NULL;
+                Assert::That(TopicManager::instance()->searchTopicById(valid_id), Is().Not().EqualTo(null_topic));
+    }
+};
+
+Describe(remove_topic_test)
+{
+    void SetUp() {
+        DataLoader::instance()->loadData();
+    }
+
+    It(invalid_topic_removal) {
+        int invalid_id = 100;
+
+        // Caso invalido
+        Assert::That(TopicManager::instance()->deleteTopicById(invalid_id), Equals(0));
+    }
+
+    It(valid_topic_removal) {
+
+        // Caso valido
+        int valid_id = 2;
+        Assert::That(TopicManager::instance()->deleteTopicById(valid_id), Equals(1));
+    }
 };
 
 int main(int argc, const char *argv[]) {

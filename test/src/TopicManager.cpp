@@ -37,7 +37,7 @@ TopicManager::~TopicManager() {
 	// TODO Auto-generated destructor stub
 }
 
-void TopicManager::deleteTopicById(int id)
+int TopicManager::deleteTopicById(int id)
 {
 	for(unsigned int i = 0; i < topics->size(); i++){
 		if(topics->at(i)->getId() == id){
@@ -45,9 +45,10 @@ void TopicManager::deleteTopicById(int id)
 			for(unsigned int j = 0; j < topics->at(i)->getQuizzes()->size(); j++){
 				QuizManager::instance()->deleteQuizById(topics->at(i)->getQuizzes()->at(j)->getId());
 			}
-			break;
+			return 1;
 		}
 	}
+    return 0;
 }
 
 void TopicManager::addTopic(Topic *topic)
