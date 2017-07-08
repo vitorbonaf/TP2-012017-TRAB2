@@ -11,8 +11,7 @@ Quiz::Quiz() {
 	this->questions = new std::vector<Question*>();
 }
 
-char Quiz::getActive() const
-{
+char Quiz::getActive() const {
     return active;
 }
 

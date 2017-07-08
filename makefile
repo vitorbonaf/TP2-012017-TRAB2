@@ -10,7 +10,7 @@ RM = rm -f
 # "Flags" para a geração automática das dependências
 DEP_FLAGS = -MT $@ -MMD -MP -MF $(DEP_PATH)/$*.d
 # Diretivas que são utilizadas na compilação de cada objeto
-DIRECTIVES = -std=c++11 -Wall -Wextra -c -I $(HEADER_PATH)
+DIRECTIVES = -std=c++11 -coverage -fprofile-arcs -ftest-coverage -fPIC -Wall -Wextra -c -I $(HEADER_PATH) 
 # Diretivas que são utilizadas na "linkagem" dos objetos gerando o executável
 LIBS = -lm
 
@@ -45,7 +45,7 @@ endif
 all: $(EXEC)
 # Regra de criação do executável final:
 $(EXEC): $(OBJ_FILES)
-	$(CC) -o $@ $^ $(LIBS)
+	$(CC) -o $@ $^ $(LIBS) -lgcov
 
 # Regra de inferência para criação dos objetos de compilação: 
 $(BIN_PATH)/%.o: $(SRC_PATH)/%.cpp
@@ -82,8 +82,7 @@ print-% : ; @echo $* = $($*)
 debug: DIRECTIVES += -ggdb -O0
 debug: all
 
-# Regra que inclui diretivas de compilação otimizada
-release: DIRECTIVES += -Ofast -mtune=native
+release: DIRECTIVES
 release: all
 
 run : all
