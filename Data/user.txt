@@ -5,3 +5,6 @@
 5|S|Camel|camel|case|A|5
 6|S|Anderson Silva|anderson|spider|A|6
 7|N|Jair Rodrigues|jair|rodrigues|U|7
+8|N|Admin2|tommy|wifi|U|8
+9|N|Gipsy|oie|asdf|U|9
+10|S|ADM2|ADM2|123|A|10

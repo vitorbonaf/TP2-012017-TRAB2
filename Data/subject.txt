@@ -4,6 +4,8 @@
 4|N|Truco|4
 5|S|Ciência Aeronáutica|5
 6|S|Biologia|6|7
-7|S|Biologia
-8|S|Biologia
-9|S|Biologia
+7|N|Biologia
+8|N|Biologia
+9|N|Biologia
+10|N|Futebol
+11|N|Biologia

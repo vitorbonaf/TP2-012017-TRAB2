@@ -58,3 +58,16 @@
 58|S|A qual filo pertencem as esponjas?|2|2|2|Cnidaria|Chordata|Porifera|Arthropoda
 59|S|Quantas especies de artropodes ja foram descritas?|2|3|2|Menos de 100.000|Menos de 500.000|Menos de 800.000|Mais de 1.000.000
 60|S|A qual ordem pertencem as vespas?|2|2|2|Hemiptera|Neuroptera|Hymenoptera|Isoptera
+61|N|a|1|0|1|Verdadeiro|Falso
+62|N|a|2|3|1|a|a|a|a
+63|N|a|1|0|1|Verdadeiro|Falso
+64|N|a|1|0|1|Verdadeiro|Falso
+65|N|a|1|1|1|Verdadeiro|Falso
+66|N|a|1|0|1|Verdadeiro|Falso
+67|N|a|1|1|1|Verdadeiro|Falso
+68|N|a|2|0|1|a|a|a|a
+69|N|a|1|0|2|Verdadeiro|Falso
+70|N|a|1|0|1|Verdadeiro|Falso
+71|N|oi|1|0|2|Verdadeiro|Falso
+72|N|oi|2|0|1|a|a|a|a
+73|N|oi|1|1|2|Verdadeiro|Falso

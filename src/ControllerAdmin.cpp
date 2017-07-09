@@ -350,7 +350,7 @@ void ControllerAdmin::includeQuiz() {
                     }while(!quizAvailable);
 
 
-                    for(int k=0; k<10; k++) {
+                    for(int k=0; k<3; k++) {
                         ans = 'O';
                         std::cout << "Pergunta numero"<< k+1 <<": ";
                         getline(std::cin, quest);
